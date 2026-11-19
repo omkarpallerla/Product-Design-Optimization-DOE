@@ -113,14 +113,10 @@ Power BI Dashboard:
 
 ```
 Product-Design-Optimization-DOE/
-├── data/
-│   └── experiment_data.csv
+├── doe_analysis.py
 ├── notebooks/
-│   └── DOE_Analysis.ipynb
-├── outputs/
-│   ├── main_effects_plot.png
-│   ├── interaction_plot.png
-│   └── pareto_chart.png
+│   └── DOE_Full_Factorial_Analysis.ipynb
+├── outputs/                  # experiment_data.csv, configuration_results.csv, doe_analysis.png
 ├── requirements.txt
 └── README.md
 ```
@@ -133,9 +129,16 @@ Product-Design-Optimization-DOE/
 git clone https://github.com/omkarpallerla/Product-Design-Optimization-DOE.git
 cd Product-Design-Optimization-DOE
 pip install -r requirements.txt
-jupyter notebook notebooks/DOE_Analysis.ipynb
+python doe_analysis.py   # or: jupyter notebook notebooks/DOE_Full_Factorial_Analysis.ipynb
 ```
 
 ---
 
-<div align="center"><sub>Omkar Pallerla · MS Business Analytics ASU · BI Engineer · Power BI | Azure | Databricks Certified</sub></div>
+
+## 🧪 Data & Reproducibility
+
+The 48 experimental runs analysed in Minitab are **not included**. `doe_analysis.py` regenerates a seeded, simulated 2⁴ x 3 data set (`outputs/experiment_data.csv`) with the same factor structure and runs the ANOVA with statsmodels. The simulation reproduces the main conclusions (Width and Length significant, a strong Length x Width interaction, Tyre Size not significant) but not the exact F-values or p-values above - in particular Load Distribution is not significant in the simulated run.
+
+---
+
+<div align="center"><sub>Omkar Pallerla · MS Business Analytics, ASU · Business Intelligence Analyst · Google Cloud | Azure | Databricks | Snowflake Certified</sub></div>
